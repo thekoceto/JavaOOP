@@ -18,8 +18,8 @@ public class Main {
 
         for (int i = 1; i <= n; i++) {
             for (TrafficLights trafficLight : trafficLights) {
-                int nextIndex = (trafficLight.ordinal() + i) % 3;
-                out.append(trafficLight.getLightByIndex(nextIndex));
+                int index = (trafficLight.ordinal() + i) % 3;
+                out.append(trafficLight.getLightByIndex(index));
                 out.append(" ");
             }
             out.append(System.lineSeparator());
