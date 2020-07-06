@@ -7,10 +7,10 @@ import P06_GreedyTimes.treasure.Gold;
 import java.util.HashMap;
 
 public class Bag {
-    private HashMap<String, Gold> gold;
-    private HashMap<String, Gem> gems;
-    private HashMap<String, Cash> cash;
-    private long capacity;
+    private final HashMap<String, Gold> gold;
+    private final HashMap<String, Gem> gems;
+    private final HashMap<String, Cash> cash;
+    private final long capacity;
 
     public Bag(long capacity) {
         this.gold = new HashMap<>();
@@ -19,30 +19,31 @@ public class Bag {
         this.capacity = capacity;
     }
 
-    public long getTotalTreasurePrice(){
-        return  this.getTotalCash() +
-                this.getTotalGems() +
-                this.getTotalGold();
-    }
-    public long getTotalCash (){
-        return cash.values()
+    public long getTotalGoldPrice(){
+        return gold.values()
                 .stream()
-                .mapToLong(Cash::getPrice)
+                .mapToLong(Gold::getPrice)
                 .sum();
     }
 
-    public long getTotalGems (){
+    public long getTotalGemsPrice (){
         return gems.values()
                 .stream()
                 .mapToLong(Gem::getPrice)
                 .sum();
     }
 
-    public long getTotalGold(){
-        return gold.values()
+    public long getTotalCashPrice(){
+        return cash.values()
                 .stream()
-                .mapToLong(Gold::getPrice)
+                .mapToLong(Cash::getPrice)
                 .sum();
+    }
+
+    public long getTotalTreasurePrice(){
+        return  this.getTotalCashPrice() +
+                this.getTotalGemsPrice() +
+                this.getTotalGoldPrice();
     }
 
     public void addGold(String name, long value) {
@@ -52,7 +53,7 @@ public class Bag {
 
     // The gold amount in your bag should always be more than or equal to the gem amount at any time
     public void addGems (String name, long value){
-        if (this.getTotalGold() >= this.getTotalGems() + value) {
+        if (this.getTotalGoldPrice() >= this.getTotalGemsPrice() + value) {
             gems.putIfAbsent(name, new Gem(name, 0L));
             gems.get(name).increasePriceBy(value);
         }
@@ -60,7 +61,7 @@ public class Bag {
 
     // The gem amount should always be more than or equal to the cash amount at any time
     public void addCash (String name, long value){
-        if(this.getTotalGems() >= this.getTotalCash() + value) {
+        if(this.getTotalGemsPrice() >= this.getTotalCashPrice() + value) {
             cash.putIfAbsent(name, new Cash(name, 0L));
             cash.get(name).increasePriceBy(value);
         }
@@ -68,12 +69,11 @@ public class Bag {
 
     private HashMap<String, Long> getMapWithTotalValue(){
         return new HashMap<>(){{
-            put("gold", getTotalGold());
-            put("gems", getTotalGems());
-            put("cash", getTotalCash());
+            put("gold", getTotalGoldPrice());
+            put("gems", getTotalGemsPrice());
+            put("cash", getTotalCashPrice());
         }};
     }
-
 
     public String report() {
 
@@ -86,7 +86,7 @@ public class Bag {
                     switch (treasure.getKey()) {
                         case "gold":
                             if (!gold.isEmpty()) {
-                                out.append("<Gold> $").append(getTotalGold());
+                                out.append("<Gold> $").append(getTotalGoldPrice());
                                 out.append(System.lineSeparator());
                                 gold.entrySet()
                                         .stream()
@@ -96,7 +96,7 @@ public class Bag {
                             break;
                         case "gems":
                             if (!gems.isEmpty()) {
-                                out.append("<Gem> $").append(getTotalGems());
+                                out.append("<Gem> $").append(getTotalGemsPrice());
                                 out.append(System.lineSeparator());
                                 gems.entrySet()
                                         .stream()
@@ -106,7 +106,7 @@ public class Bag {
                             break;
                         case "cash":
                             if (!cash.isEmpty()) {
-                                out.append("<Cash> $").append(getTotalCash());
+                                out.append("<Cash> $").append(getTotalCashPrice());
                                 out.append(System.lineSeparator());
                                 cash.entrySet()
                                         .stream()
