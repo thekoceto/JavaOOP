@@ -50,6 +50,7 @@ public class Bag {
         gold.get(name).increasePriceBy(value);
     }
 
+    // The gold amount in your bag should always be more than or equal to the gem amount at any time
     public void addGems (String name, long value){
         if (this.getTotalGold() >= this.getTotalGems() + value) {
             gems.putIfAbsent(name, new Gem(name, 0L));
@@ -57,7 +58,7 @@ public class Bag {
         }
     }
 
-    //•	The gem amount should always be more than or equal to the cash amount at any time
+    // The gem amount should always be more than or equal to the cash amount at any time
     public void addCash (String name, long value){
         if(this.getTotalGems() >= this.getTotalCash() + value) {
             cash.putIfAbsent(name, new Cash(name, 0L));
