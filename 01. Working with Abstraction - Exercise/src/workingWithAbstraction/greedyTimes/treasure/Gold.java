@@ -6,13 +6,15 @@
 package workingWithAbstraction.greedyTimes.treasure;
 
 public class Gold extends Treasure{
+    private String name;
 
-    public Gold(long price) {
+    public Gold(String name, long price) {
         super(price);
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "##Gold - " + this.price;
+        return "##" + this.name + " - " + this.price;
     }
 }

@@ -13,10 +13,10 @@ public class Treasure {
     }
 
     public long getPrice() {
-        return price;
+        return this.price;
     }
 
-    public void incrementPriceBy(Long price) {
+    public void increasePriceBy(Long price) {
         this.price += price;
     }
 }

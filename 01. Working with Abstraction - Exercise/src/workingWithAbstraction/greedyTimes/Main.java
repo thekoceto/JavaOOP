@@ -13,22 +13,20 @@ public class Main {
 
         for (int i = 0; i < input.length; i += 2) {
             String name = input[i];
-            long value = Long.parseLong(input[i + 1]);
+            long amount = Long.parseLong(input[i + 1]);
 
-            if (capacity < bag.getTotalTreasurePrice() + value)
+            if (capacity < bag.getTotalTreasurePrice() + amount)
                 continue;
 
             if (name.length() == 3) {
-                bag.addCash(name, value);
+                bag.addCash(name, amount);
             } else if (name.toLowerCase().endsWith("gem")) {
-                bag.addGems(name, value);
+                bag.addGems(name, amount);
             } else if (name.toLowerCase().equals("gold")) {
-                bag.addGold(value);
+                bag.addGold(name, amount);
             }
 
         }
-
-        System.out.println(bag.toString());
-
+        System.out.println(bag.report());
     }
 }
