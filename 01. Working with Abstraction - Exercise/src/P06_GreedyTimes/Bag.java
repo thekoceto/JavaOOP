@@ -1,8 +1,8 @@
-package workingWithAbstraction.greedyTimes;
+package P06_GreedyTimes;
 
-import workingWithAbstraction.greedyTimes.treasure.Cash;
-import workingWithAbstraction.greedyTimes.treasure.Gem;
-import workingWithAbstraction.greedyTimes.treasure.Gold;
+import P06_GreedyTimes.treasure.Cash;
+import P06_GreedyTimes.treasure.Gem;
+import P06_GreedyTimes.treasure.Gold;
 
 import java.util.HashMap;
 

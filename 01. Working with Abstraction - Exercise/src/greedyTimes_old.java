@@ -3,8 +3,6 @@
  * thekoceto@gmail.com
  */
 
-package workingWithAbstraction;
-
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;

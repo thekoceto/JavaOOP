@@ -3,12 +3,12 @@
  * thekoceto@gmail.com
  */
 
-package workingWithAbstraction.greedyTimes.treasure;
+package P06_GreedyTimes.treasure;
 
-public class Gold extends Treasure{
+public class Cash extends Treasure{
     private String name;
 
-    public Gold(String name, long price) {
+    public Cash(String name, long price) {
         super(price);
         this.name = name;
     }

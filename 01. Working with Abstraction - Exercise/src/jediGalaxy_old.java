@@ -1,4 +1,7 @@
-package workingWithAbstraction.jediGalaxy;
+/*
+ * Copyright (c) 2020.
+ * thekoceto@gmail.com
+ */
 
 import java.util.Arrays;
 import java.util.Scanner;

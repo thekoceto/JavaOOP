@@ -1,4 +1,4 @@
-package workingWithAbstraction.greedyTimes;
+package P06_GreedyTimes;
 
 import java.util.Scanner;
 
@@ -18,13 +18,12 @@ public class Main {
             if (capacity < bag.getTotalTreasurePrice() + amount)
                 continue;
 
-            if (name.length() == 3) {
+            if (name.length() == 3)
                 bag.addCash(name, amount);
-            } else if (name.toLowerCase().endsWith("gem")) {
+            else if (name.toLowerCase().endsWith("gem"))
                 bag.addGems(name, amount);
-            } else if (name.toLowerCase().equals("gold")) {
+            else if (name.toLowerCase().equals("gold"))
                 bag.addGold(name, amount);
-            }
 
         }
         System.out.println(bag.report());

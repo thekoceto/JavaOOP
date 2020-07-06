@@ -3,7 +3,7 @@
  * thekoceto@gmail.com
  */
 
-package workingWithAbstraction.jediGalaxy.galaxy;
+package P05_JediGalaxy.galaxy;
 
 public class Player {
     private long score;

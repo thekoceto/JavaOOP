@@ -3,7 +3,7 @@
  * thekoceto@gmail.com
  */
 
-package workingWithAbstraction.greedyTimes.treasure;
+package P06_GreedyTimes.treasure;
 
 public class Gem extends Treasure{
     private String name;

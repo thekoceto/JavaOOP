@@ -1,8 +1,8 @@
-package workingWithAbstraction.jediGalaxy;
+package P05_JediGalaxy;
 
-import workingWithAbstraction.jediGalaxy.galaxy.Galactic;
-import workingWithAbstraction.jediGalaxy.galaxy.GalacticCluster;
-import workingWithAbstraction.jediGalaxy.galaxy.Player;
+import P05_JediGalaxy.galaxy.Galactic;
+import P05_JediGalaxy.galaxy.GalacticCluster;
+import P05_JediGalaxy.galaxy.Player;
 
 import java.util.Arrays;
 import java.util.Scanner;
