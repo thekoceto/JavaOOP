@@ -47,12 +47,16 @@ public class Bag {
     }
 
     public void addGold(String name, long value) {
+//        if (this.capacity < this.getTotalTreasurePrice() + value)
+//            return;
         gold.putIfAbsent(name, new Gold(name, 0L));
         gold.get(name).increasePriceBy(value);
     }
 
     // The gold amount in your bag should always be more than or equal to the gem amount at any time
     public void addGems (String name, long value){
+//        if (this.capacity < this.getTotalTreasurePrice() + value)
+//            return;
         if (this.getTotalGoldPrice() >= this.getTotalGemsPrice() + value) {
             gems.putIfAbsent(name, new Gem(name, 0L));
             gems.get(name).increasePriceBy(value);
@@ -61,6 +65,8 @@ public class Bag {
 
     // The gem amount should always be more than or equal to the cash amount at any time
     public void addCash (String name, long value){
+//        if (this.capacity < this.getTotalTreasurePrice() + value)
+//            return;
         if(this.getTotalGemsPrice() >= this.getTotalCashPrice() + value) {
             cash.putIfAbsent(name, new Cash(name, 0L));
             cash.get(name).increasePriceBy(value);
@@ -69,22 +75,23 @@ public class Bag {
 
     private HashMap<String, Long> getMapWithTotalValue(){
         return new HashMap<>(){{
-            put("gold", getTotalGoldPrice());
-            put("gems", getTotalGemsPrice());
-            put("cash", getTotalCashPrice());
+            put("Gold", getTotalGoldPrice());
+            put("Gems", getTotalGemsPrice());
+            put("Cash", getTotalCashPrice());
         }};
     }
 
     public String report() {
 
         StringBuilder out = new StringBuilder();
+
         getMapWithTotalValue()
                 .entrySet()
                 .stream()
                 .sorted((treasure1, treasure2) -> treasure2.getValue().compareTo(treasure1.getValue()))
                 .forEach(treasure -> {
                     switch (treasure.getKey()) {
-                        case "gold":
+                        case "Gold":
                             if (!gold.isEmpty()) {
                                 out.append("<Gold> $").append(getTotalGoldPrice());
                                 out.append(System.lineSeparator());
@@ -94,7 +101,7 @@ public class Bag {
                                         .forEach(s -> out.append(s.getValue().toString()).append(System.lineSeparator()));
                             }
                             break;
-                        case "gems":
+                        case "Gems":
                             if (!gems.isEmpty()) {
                                 out.append("<Gem> $").append(getTotalGemsPrice());
                                 out.append(System.lineSeparator());
@@ -104,7 +111,7 @@ public class Bag {
                                         .forEach(s -> out.append(s.getValue().toString()).append(System.lineSeparator()));
                             }
                             break;
-                        case "cash":
+                        case "Cash":
                             if (!cash.isEmpty()) {
                                 out.append("<Cash> $").append(getTotalCashPrice());
                                 out.append(System.lineSeparator());
