@@ -1,8 +1,8 @@
 package P06_GreedyTimes;
 
-import P06_GreedyTimes.treasure.Cash;
-import P06_GreedyTimes.treasure.Gem;
-import P06_GreedyTimes.treasure.Gold;
+import P06_GreedyTimes.treasures.Cash;
+import P06_GreedyTimes.treasures.Gem;
+import P06_GreedyTimes.treasures.Gold;
 
 import java.util.HashMap;
 
