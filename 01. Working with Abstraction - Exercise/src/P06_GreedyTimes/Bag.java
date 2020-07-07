@@ -19,7 +19,7 @@ public class Bag {
         this.capacity = capacity;
     }
 
-    private boolean isNotEnoughCapacity(long value){
+    private boolean isOutOfCapacity(long value){
         return this.capacity < this.getTotalTreasurePrice() + value;
     }
 
@@ -51,7 +51,7 @@ public class Bag {
     }
 
     public void addGold(String name, long value) {
-        if (isNotEnoughCapacity(value))
+        if (isOutOfCapacity(value))
             return;
         gold.putIfAbsent(name, new Gold(name, 0L));
         gold.get(name).increasePriceBy(value);
@@ -59,7 +59,7 @@ public class Bag {
 
     // The gold amount in your bag should always be more than or equal to the gem amount at any time
     public void addGems (String name, long value){
-        if (isNotEnoughCapacity(value))
+        if (isOutOfCapacity(value))
             return;
         if (this.getTotalGoldPrice() >= this.getTotalGemsPrice() + value) {
             gems.putIfAbsent(name, new Gem(name, 0L));
@@ -69,7 +69,7 @@ public class Bag {
 
     // The gem amount should always be more than or equal to the cash amount at any time
     public void addCash (String name, long value){
-        if (isNotEnoughCapacity(value))
+        if (isOutOfCapacity(value))
             return;
         if(this.getTotalGemsPrice() >= this.getTotalCashPrice() + value) {
             cash.putIfAbsent(name, new Cash(name, 0L));
@@ -87,7 +87,7 @@ public class Bag {
 
     public String report() {
 
-        StringBuilder out = new StringBuilder();
+        StringBuilder report = new StringBuilder();
 
         getMapWithTotalValue()
                 .entrySet()
@@ -97,37 +97,37 @@ public class Bag {
                     switch (treasure.getKey()) {
                         case "Gold":
                             if (!gold.isEmpty()) {
-                                out.append("<Gold> $").append(getTotalGoldPrice());
-                                out.append(System.lineSeparator());
+                                report.append("<Gold> $").append(getTotalGoldPrice());
+                                report.append(System.lineSeparator());
                                 gold.entrySet()
                                         .stream()
                                         .sorted((s1, s2) -> s2.getKey().compareTo(s1.getKey()))
-                                        .forEach(s -> out.append(s.getValue().toString()).append(System.lineSeparator()));
+                                        .forEach(s -> report.append(s.getValue().toString()).append(System.lineSeparator()));
                             }
                             break;
                         case "Gem":
                             if (!gems.isEmpty()) {
-                                out.append("<Gem> $").append(getTotalGemsPrice());
-                                out.append(System.lineSeparator());
+                                report.append("<Gem> $").append(getTotalGemsPrice());
+                                report.append(System.lineSeparator());
                                 gems.entrySet()
                                         .stream()
                                         .sorted((s1, s2) -> s2.getKey().compareTo(s1.getKey()))
-                                        .forEach(s -> out.append(s.getValue().toString()).append(System.lineSeparator()));
+                                        .forEach(s -> report.append(s.getValue().toString()).append(System.lineSeparator()));
                             }
                             break;
                         case "Cash":
                             if (!cash.isEmpty()) {
-                                out.append("<Cash> $").append(getTotalCashPrice());
-                                out.append(System.lineSeparator());
+                                report.append("<Cash> $").append(getTotalCashPrice());
+                                report.append(System.lineSeparator());
                                 cash.entrySet()
                                         .stream()
                                         .sorted((s1, s2) -> s2.getKey().compareTo(s1.getKey()))
-                                        .forEach(s -> out.append(s.getValue().toString()).append(System.lineSeparator()));
+                                        .forEach(s -> report.append(s.getValue().toString()).append(System.lineSeparator()));
                             }
                             break;
                     }
                 });
 
-        return out.toString().trim();
+        return report.toString().trim();
     }
 }

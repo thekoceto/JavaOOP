@@ -1,14 +1,11 @@
-/*
- * Copyright (c) 2020.
- * thekoceto@gmail.com
- */
-
 package P06_GreedyTimes.treasure;
 
 public class Treasure {
-    long price;
+    private final String name;
+    private long price;
 
-    public Treasure(long price) {
+    public Treasure(String name, long price) {
+        this.name = name;
         this.price = price;
     }
 
@@ -18,5 +15,10 @@ public class Treasure {
 
     public void increasePriceBy(Long price) {
         this.price += price;
+    }
+
+    @Override
+    public String toString() {
+        return "##" + this.name + " - " + this.price;
     }
 }
