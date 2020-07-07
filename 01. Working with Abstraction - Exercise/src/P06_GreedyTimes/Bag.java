@@ -80,7 +80,7 @@ public class Bag {
     private HashMap<String, Long> getMapWithTotalValue(){
         return new HashMap<>(){{
             put("Gold", getTotalGoldPrice());
-            put("Gems", getTotalGemsPrice());
+            put("Gem" , getTotalGemsPrice());
             put("Cash", getTotalCashPrice());
         }};
     }
@@ -105,7 +105,7 @@ public class Bag {
                                         .forEach(s -> out.append(s.getValue().toString()).append(System.lineSeparator()));
                             }
                             break;
-                        case "Gems":
+                        case "Gem":
                             if (!gems.isEmpty()) {
                                 out.append("<Gem> $").append(getTotalGemsPrice());
                                 out.append(System.lineSeparator());
