@@ -19,7 +19,7 @@ public class Bag {
         this.capacity = capacity;
     }
 
-    private boolean checkCapacity(long value){
+    private boolean isNotEnoughCapacity(long value){
         return this.capacity < this.getTotalTreasurePrice() + value;
     }
 
@@ -51,7 +51,7 @@ public class Bag {
     }
 
     public void addGold(String name, long value) {
-        if (checkCapacity(value))
+        if (isNotEnoughCapacity(value))
             return;
         gold.putIfAbsent(name, new Gold(name, 0L));
         gold.get(name).increasePriceBy(value);
@@ -59,7 +59,7 @@ public class Bag {
 
     // The gold amount in your bag should always be more than or equal to the gem amount at any time
     public void addGems (String name, long value){
-        if (checkCapacity(value))
+        if (isNotEnoughCapacity(value))
             return;
         if (this.getTotalGoldPrice() >= this.getTotalGemsPrice() + value) {
             gems.putIfAbsent(name, new Gem(name, 0L));
@@ -69,7 +69,7 @@ public class Bag {
 
     // The gem amount should always be more than or equal to the cash amount at any time
     public void addCash (String name, long value){
-        if (checkCapacity(value))
+        if (isNotEnoughCapacity(value))
             return;
         if(this.getTotalGemsPrice() >= this.getTotalCashPrice() + value) {
             cash.putIfAbsent(name, new Cash(name, 0L));
