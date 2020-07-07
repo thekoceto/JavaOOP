@@ -15,9 +15,6 @@ public class Main {
             String name = input[i];
             long amount = Long.parseLong(input[i + 1]);
 
-            if (capacity < bag.getTotalTreasurePrice() + amount)
-                continue;
-
             if (name.length() == 3)
                 bag.addCash(name, amount);
             else if (name.toLowerCase().endsWith("gem"))
