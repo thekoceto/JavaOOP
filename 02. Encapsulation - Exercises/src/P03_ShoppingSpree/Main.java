@@ -28,8 +28,11 @@ public class Main {
             String[] splitted = input.split(" ");
             String personName = splitted[0];
             String productName = splitted[1];
-            if (persons.containsKey(personName) && products.containsKey(productName) ) {
+            try {
                 persons.get(personName).buyProduct(products.get(productName));
+                System.out.printf("%s bought %s%n", personName, productName);
+            } catch (IllegalArgumentException iae) {
+                System.out.println(iae.getMessage());
             }
         }
         StringBuilder report = new StringBuilder();

@@ -1,37 +1,33 @@
-package P03_ShoppingSpree;
+package P03_ShoppingSpree2;
 
 public class Product {
     private String name;
     private double cost;
 
-    //+ Product (String,  double)
     public Product(String name, double cost) {
         this.setName(name);
         this.setCost(cost);
     }
 
-    //+	getName(): String
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    //+	getCost (): double
-    public double getCost() {
-        return this.cost;
-    }
-
-    //-	setName (String): void
     private void setName(String name) {
-        if (name == null || name.trim().isEmpty())
+        if (name == null || name.trim().isEmpty()){
             throw new IllegalArgumentException("Name cannot be empty");
-        this.name = name;
+        }
+        this.name = name.trim();
     }
 
-    //-	setCost (double): void
+    public double getCost() {
+        return cost;
+    }
+
     private void setCost(double cost) {
-        if (cost<0)
+        if (this.cost < 0){
             throw new IllegalArgumentException("Money cannot be negative");
+        }
         this.cost = cost;
     }
-
 }
