@@ -18,25 +18,22 @@ public class Main{
 
         while (!"Beast!".equals(input = reader.readLine())) {
             String[] token = reader.readLine().split("\\s+");
-            String name = token[0];
-            int age = Integer.parseInt(token[1]);
-            String gender = token[2];
 
             switch (input) {
                 case "Dog":
-                    animals.add(new Dog(name, age, gender));
+                    animals.add(new Dog(token[0], Integer.parseInt(token[1]), token[2]));
                     break;
                 case "Cat":
-                    animals.add(new Cat(name, age, gender));
+                    animals.add(new Cat(token[0], Integer.parseInt(token[1]), token[2]));
                     break;
                 case "Frog":
-                    animals.add(new Frog(name, age, gender));
+                    animals.add(new Frog(token[0], Integer.parseInt(token[1]), token[2]));
                     break;
                 case "Kitten":
-                    animals.add(new Kitten(name, age));
+                    animals.add(new Kitten(token[0], Integer.parseInt(token[1])));
                     break;
                 case "Tomcat":
-                    animals.add(new Tomcat(name, age));
+                    animals.add(new Tomcat(token[0], Integer.parseInt(token[1])));
                     break;
             }
         }
