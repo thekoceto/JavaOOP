@@ -68,6 +68,6 @@ public class Player {
 
     private void statValidator (int stat, String statName){
         if (stat < 0 || stat > 100)
-            throw new IllegalArgumentException(statName + " Shooting be between 0 and 100.");
+            throw new IllegalArgumentException(statName + " should be between 0 and 100.");
     }
 }
