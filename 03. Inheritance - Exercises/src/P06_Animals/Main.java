@@ -37,6 +37,7 @@ public class Main{
                     break;
             }
         }
+
         StringBuilder report = new StringBuilder();
         animals.forEach(animal -> report.append(animal.toString()).append(System.lineSeparator()));
         System.out.println(report.toString().trim());

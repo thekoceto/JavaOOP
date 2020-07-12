@@ -30,7 +30,7 @@ public class Main {
             String productName = splitted[1];
             try {
                 persons.get(personName).buyProduct(products.get(productName));
-                System.out.printf("%s bought %s%n", personName, productName);
+                System.out.println(personName + " bought " + productName);
             } catch (IllegalArgumentException iae) {
                 System.out.println(iae.getMessage());
             }
@@ -40,11 +40,3 @@ public class Main {
         System.out.println(report.toString());
     }
 }
-//Pesho bought Bread
-//Gosho bought Milk
-//Gosho bought Milk
-//Pesho can't afford Milk
-//Pesho - Bread
-//Gosho - Milk, Milk
-//Mimi can't afford Kafence
-//Mimi – Nothing bought

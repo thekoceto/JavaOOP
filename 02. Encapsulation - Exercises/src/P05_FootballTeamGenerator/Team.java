@@ -39,7 +39,7 @@ public class Team {
                 this.players.remove(i--);
         }
     }
-    //+	removePlayer(String) : void
+
     public boolean findPlayer(String playerName) {
         return this.players
                 .stream()
