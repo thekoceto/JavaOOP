@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
-    //-	name: String
-    //-	players: List<Player>
     private String name;
     private final List<Player> players;
 
