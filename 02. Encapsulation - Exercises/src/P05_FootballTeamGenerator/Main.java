@@ -9,6 +9,7 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         Teams teams = new Teams();
+        StringBuilder report = new StringBuilder();
 
         String input;
         while (!"END".equals(input = reader.readLine())){
@@ -22,30 +23,31 @@ public class Main {
                     String playerName = token[2];
                     try {
                         teams.addPlayerToTeam(teamName, playerName,
-                                Integer.parseInt(token[3]),
-                                Integer.parseInt(token[4]),
-                                Integer.parseInt(token[5]),
-                                Integer.parseInt(token[6]),
+                                Integer.parseInt(token[3]), Integer.parseInt(token[4]),
+                                Integer.parseInt(token[5]), Integer.parseInt(token[6]),
                                 Integer.parseInt(token[7]));
                     }catch (IllegalArgumentException ex) {
-                        System.out.println(ex.getMessage());
+                        report.append(ex.getMessage()).append(System.lineSeparator());
                     }
                     break;
                 case "Remove":
                     try{
-                        teams.removePlayerFromTeam(token[1], token[2]);
+                        teams.removePlayerFromTeam(teamName, token[2]);
                     }catch (IllegalArgumentException ex) {
-                        System.out.println(ex.getMessage());
+                        report.append(ex.getMessage()).append(System.lineSeparator());
                     }
                     break;
                 case "Rating":
                     try{
-                        System.out.println(teamName + " - " + Math.round(teams.getRating(teamName)));
+                        long rating = Math.round(teams.getRating(teamName));
+                        report.append(teamName).append(" - ").append(rating);
+                        report.append(System.lineSeparator());
                     }catch (IllegalArgumentException ex){
-                        System.out.println("Team " + teamName + " does not exist.");
+                        report.append(ex.getMessage()).append(System.lineSeparator());
                     }
                     break;
             }
         }
+        System.out.print(report.toString().trim());
     }
 }

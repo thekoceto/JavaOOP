@@ -1,50 +1,47 @@
 package P05_FootballTeamGenerator;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Teams {
-    private ArrayList<Team> teams;
+    private final HashMap<String, Team> teams;
 
     public Teams() {
-        this.teams = new ArrayList<>();
+        this.teams = new HashMap<>();
     }
 
     public void addTeam(String teamName){
-        teams.add(new Team(teamName));
+        this.teams.put(teamName, new Team(teamName));
     }
 
-    public void addPlayerToTeam (String teamName, String name, int endurance,
-                                 int sprint, int dribble, int passing, int shooting) {
-        Team team = findTeam(teamName);
+    public void addPlayerToTeam (String teamName, String playerName, int endurance, int sprint,
+                                 int dribble, int passing, int shooting) {
+
+        doesTheTeamExist(teamName);
+
         try {
-            team.addPlayer(new Player(name, endurance, sprint, dribble, passing, shooting));
+            this.teams.get(teamName).addPlayer(new Player(playerName, endurance, sprint, dribble, passing, shooting));
         } catch (IllegalArgumentException ex) {
             throw new IllegalArgumentException(ex.getMessage());
         }
     }
-
     public void removePlayerFromTeam(String teamName, String playerName) {
-        Team team = findTeam(teamName);
-        if (team.findPlayer(playerName))
-            team.removePlayer(playerName);
+        doesTheTeamExist(teamName);
+
+        if (this.teams.get(teamName).findPlayer(playerName))
+            this.teams.get(teamName).removePlayer(playerName);
         else
             throw new IllegalArgumentException("Player " + playerName + " is not in " + teamName + " team.");
     }
 
     public double getRating(String teamName) {
-        return findTeam(teamName).getRating();
+        doesTheTeamExist(teamName);
+        return teams.get(teamName).getRating();
     }
 
-    private Team findTeam(String teamName) {
-        Team team = teams
-                .stream()
-                .filter(t -> teamName.equals(t.getName()))
-                .findAny()
-                .orElse(null);
-        if (team == null)
-            throw new IllegalArgumentException("Team " + teamName+ " does not exist.");
-
-        return team;
+    private void doesTheTeamExist(String teamName) {
+        if (!teams.containsKey(teamName))
+            throw new IllegalArgumentException("Team " + teamName + " does not exist.");
     }
+
 
 }

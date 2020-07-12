@@ -7,7 +7,7 @@ public class Team {
     //-	name: String
     //-	players: List<Player>
     private String name;
-    private List<Player> players;
+    private final List<Player> players;
 
     //+ Team (String)
     public Team(String name) {
@@ -24,20 +24,17 @@ public class Team {
 
     //+	getName(): String
     public String getName() {
-        return name;
+        return this.name;
     }
 
     //+	addPlayer(Player) : void
     public void addPlayer(Player player) {
-        players.add(player);
+        this.players.add(player);
     }
 
     //+	removePlayer(String) : void
     public void removePlayer(String playerName) {
-        for (int i = 0; i < this.players.size(); i++) {
-            if (playerName.equals(this.players.get(i).getName()))
-                this.players.remove(i--);
-        }
+        this.players.removeIf(player -> player.getName().equals(playerName));
     }
 
     public boolean findPlayer(String playerName) {
