@@ -3,7 +3,7 @@ package P03_WildFarm.animal;
 import java.text.DecimalFormat;
 
 public abstract class Mammal extends Animal{
-    private String livingRegion;
+    private final String livingRegion;
 
     public Mammal(String animalName, String animalType, Double animalWeight, String livingRegion) {
         super(animalName, animalType, animalWeight);
@@ -11,7 +11,7 @@ public abstract class Mammal extends Animal{
     }
 
     public String getLivingRegion() {
-        return livingRegion;
+        return this.livingRegion;
     }
 
     @Override
@@ -22,6 +22,4 @@ public abstract class Mammal extends Animal{
                 ", "  + this.getLivingRegion() +
                 ", "  + this.getFoodEaten() + "]";
     }
-
 }
-//{AnimalType} [{AnimalName}, {CatBreed}, {AnimalWeight}, {AnimalLivingRegion}, {FoodEaten}]

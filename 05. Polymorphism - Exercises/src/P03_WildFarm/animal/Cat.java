@@ -32,4 +32,3 @@ public class Cat extends Felime{
                 ", "  + this.getFoodEaten() + "]";
     }
 }
-//{AnimalType} [{AnimalName}, {CatBreed}, {AnimalWeight}, {AnimalLivingRegion}, {FoodEaten}]

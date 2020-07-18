@@ -3,8 +3,6 @@ package P03_WildFarm.animal;
 import P03_WildFarm.food.Food;
 import P03_WildFarm.food.Meat;
 
-import java.text.DecimalFormat;
-
 public class Tiger extends Felime{
 
     public Tiger(String animalName, String animalType, Double animalWeight, String livingRegion) {
@@ -23,5 +21,4 @@ public class Tiger extends Felime{
         else
             System.out.println(this.getClass().getSimpleName() + "s are not eating that type of food!");
     }
-
 }

@@ -1,13 +1,13 @@
 package P03_WildFarm.food;
 
 public abstract class Food {
-    private Integer quantity;
+    private final Integer quantity;
 
     public Food(Integer quantity) {
         this.quantity = quantity;
     }
 
     public Integer getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 }

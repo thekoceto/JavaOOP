@@ -5,9 +5,9 @@ import P03_WildFarm.food.Food;
 import java.text.DecimalFormat;
 
 public abstract class Animal {
-    private String animalName;
-    private String animalType;
-    private Double animalWeight;
+    private final String animalName;
+    private final String animalType;
+    private final Double animalWeight;
     private Integer foodEaten;
 
     public Animal(String animalName, String animalType, Double animalWeight) {
@@ -42,4 +42,3 @@ public abstract class Animal {
     public abstract void eat(Food food);
 
 }
-//{AnimalType} [{AnimalName}, {CatBreed}, {AnimalWeight}, {AnimalLivingRegion}, {FoodEaten}]
