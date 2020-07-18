@@ -17,13 +17,11 @@ public class Main {
         String input;
         while (!"End".equals(input = reader.readLine())) {
             String[] token = input.split("\\s+");
-            String[] eat = reader.readLine().split("\\s+");
             Animal animal;
             switch (token[0]) {
                 case "Cat":
                     animal = new Cat(token[0], token[1],
-                            Double.parseDouble(token[2]),
-                            token[3], token[4]);
+                            Double.parseDouble(token[2]), token[3], token[4]);
                     break;
                 case "Tiger":
                     animal = new Tiger(token[0], token[1],
@@ -37,19 +35,20 @@ public class Main {
                     animal = new Mouse(token[0], token[1],
                             Double.parseDouble(token[2]), token[3]);
                     break;
-
                 default:
                     throw new IllegalStateException("Unexpected value: " + token[0]);
             }
-            switch (eat[0]){
+
+            token = reader.readLine().split("\\s+");
+            switch (token[0]){
                 case "Vegetable":
-                    animal.eat(new Vegetable(Integer.parseInt(eat[1])));
+                    animal.eat(new Vegetable(Integer.parseInt(token[1])));
                     break;
                 case "Meat":
-                    animal.eat(new Meat(Integer.parseInt(eat[1])));
+                    animal.eat(new Meat(Integer.parseInt(token[1])));
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + eat[0]);
+                    throw new IllegalStateException("Unexpected value: " + token[0]);
             }
             animals.add(animal);
         }
