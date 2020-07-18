@@ -19,6 +19,5 @@ public class Mouse extends Mammal{
             super.setFoodEaten(food.getQuantity());
         else
             System.out.println("Mice are not eating that type of food!");
-//        System.out.println(this.getClass().getSimpleName() + "s are not eating that type of food!");
     }
 }
