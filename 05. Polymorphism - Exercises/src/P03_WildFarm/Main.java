@@ -52,6 +52,8 @@ public class Main {
             }
             animals.add(animal);
         }
-        animals.forEach(animal -> System.out.println(animal.toString()));
+
+        for (Animal animal : animals)
+            System.out.println(animal.toString());
     }
 }
