@@ -5,6 +5,8 @@ import P03_BarracksWars.interfaces.Unit;
 import P03_BarracksWars.interfaces.UnitFactory;
 import jdk.jshell.spi.ExecutionControl;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class AddCommand extends Command{
 
     public AddCommand(String[] data, Repository repository, UnitFactory unitFactory) {
@@ -17,7 +19,12 @@ public class AddCommand extends Command{
         Unit unitToAdd = null;
         try {
             unitToAdd = this.getUnitFactory().createUnit(unitType);
-        } catch (ExecutionControl.NotImplementedException e) {
+        } catch (ExecutionControl.NotImplementedException
+                | InstantiationException
+                | InvocationTargetException
+                | NoSuchMethodException
+                | IllegalAccessException
+                | ClassNotFoundException e) {
             e.printStackTrace();
         }
         this.getRepository().addUnit(unitToAdd);
