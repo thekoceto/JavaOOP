@@ -1,8 +1,8 @@
-package P03_BarracksWars.core.commands;
+package P05_BarracksWars.core.commands;
 
-import P03_BarracksWars.interfaces.Executable;
-import P03_BarracksWars.interfaces.Repository;
-import P03_BarracksWars.interfaces.UnitFactory;
+import P05_BarracksWars.interfaces.Executable;
+import P05_BarracksWars.interfaces.Repository;
+import P05_BarracksWars.interfaces.UnitFactory;
 
 public abstract class Command implements Executable {
     private String[] data;
