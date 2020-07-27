@@ -64,7 +64,7 @@ public class Main {
 
                         if (tokens.length > 6) {
                             for (int i = 6; i < tokens.length; i += 2) {
-                                String stateStr = tokens[i+1];
+                                String stateStr = tokens[i + 1];
                                 if (stateStr.equals("inProgress") || stateStr.equals("finished")) {
                                     Mission mission = new Mission(tokens[i], State.valueOf(stateStr.toUpperCase()));
                                     commando.addMission(mission);

@@ -19,6 +19,6 @@ public class Repair {
 
     @Override
     public String toString() {
-        return String.format("  Part Name: %s Hours Worked: %d",this.getName(), this.hoursWorked).trim();
+        return String.format("  Part Name: %s Hours Worked: %d", this.getName(), this.hoursWorked).trim();
     }
 }

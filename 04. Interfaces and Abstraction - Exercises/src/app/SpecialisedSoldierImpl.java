@@ -6,7 +6,7 @@ public class SpecialisedSoldierImpl extends PrivateImpl implements SpecialisedSo
     private Corp corp;
 
     protected SpecialisedSoldierImpl(int id, String firstName, String lastName,
-                                  double salary, Corp corp) {
+                                     double salary, Corp corp) {
         super(id, firstName, lastName, salary);
         this.corp = corp;
     }

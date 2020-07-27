@@ -13,7 +13,7 @@ public class MyListImpl extends Collection implements MyList {
 
     @Override
     public String remove() {
-        return super.collection().remove(super.collection().size()-1);
+        return super.collection().remove(0);
     }
 
     @Override

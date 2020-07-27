@@ -1,8 +1,7 @@
 package P03_WildFarm;
 
 import P03_WildFarm.animal.*;
-import P03_WildFarm.food.Meat;
-import P03_WildFarm.food.Vegetable;
+import P03_WildFarm.food.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;

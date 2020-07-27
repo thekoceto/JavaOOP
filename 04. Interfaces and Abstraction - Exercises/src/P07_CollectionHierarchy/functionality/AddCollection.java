@@ -8,6 +8,6 @@ public class AddCollection extends Collection implements Addable {
     @Override
     public int add(String element) {
         super.collection().add(element);
-        return super.collection().size()-1;
+        return super.collection().size() - 1;
     }
 }
