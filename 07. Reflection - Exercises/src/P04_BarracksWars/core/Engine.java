@@ -49,17 +49,16 @@ public class Engine implements Runnable {
 
 	private String interpretCommand(String[] data, String commandName) throws NoSuchMethodException,
 			IllegalAccessException, InvocationTargetException, InstantiationException {
-		String result;
+
 		try {
 			commandName = Character.toUpperCase(commandName.charAt(0)) + commandName.substring(1);
 			Class<?> command = Class.forName(COMMANDS_PACKAGE_NAME + commandName + "Command");
 			Constructor<?> constructor = command.getDeclaredConstructor(String[].class, Repository.class, UnitFactory.class);
 			Executable instance = (Executable) constructor.newInstance(data, this.repository, this.unitFactory);
-			result = instance.execute();
+			return instance.execute();
 		}catch (ClassNotFoundException e){
-			result = "Invalid command";
+			return "Invalid command";
 		}
-		return result;
 	}
 
 }
