@@ -1,6 +1,6 @@
 package P06_GreedyTimes.treasures;
 
-public class Treasure {
+public abstract class Treasure {
     private final String name;
     private long price;
 
