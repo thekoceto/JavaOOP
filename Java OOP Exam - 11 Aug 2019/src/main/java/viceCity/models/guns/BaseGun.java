@@ -18,7 +18,7 @@ public abstract class BaseGun implements Gun{
         if (name == null || name.trim().isEmpty())
             throw new NullPointerException(ExceptionMessages.NAME_NULL);
 
-    this.name = name;
+        this.name = name;
     }
 
     public void setBulletsPerBarrel(int bulletsPerBarrel) {
