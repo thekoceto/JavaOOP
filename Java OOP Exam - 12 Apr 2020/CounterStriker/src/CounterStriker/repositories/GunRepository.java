@@ -32,15 +32,10 @@ public class GunRepository implements Repository<Gun>{
 
     @Override
     public Gun findByName(String name) {
-        Gun gun = models
+        return models
                 .stream()
                 .filter(g -> g.getName().equals(name))
                 .findFirst()
                 .orElse(null);
-
-        if (gun == null)
-            throw new NullPointerException(ExceptionMessages.GUN_CANNOT_BE_FOUND);
-
-        return gun;
     }
 }

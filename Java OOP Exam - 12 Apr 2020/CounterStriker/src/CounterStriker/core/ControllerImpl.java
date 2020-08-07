@@ -42,12 +42,16 @@ public class ControllerImpl implements Controller{
 
     @Override
     public String addPlayer(String type, String username, int health, int armor, String gunName) {
+        Gun gun = guns.findByName(gunName);
+        if (gun == null)
+            throw new NullPointerException(ExceptionMessages.GUN_CANNOT_BE_FOUND);
+
         switch (type) {
             case "Terrorist":
-                players.add(new Terrorist(username, health, armor, guns.findByName(gunName)));
+                players.add(new Terrorist(username, health, armor, gun));
                 return String.format(OutputMessages.SUCCESSFULLY_ADDED_PLAYER, username);
             case "CounterTerrorist":
-                players.add(new CounterTerrorist(username, health, armor, guns.findByName(gunName)));
+                players.add(new CounterTerrorist(username, health, armor, gun));
                 return String.format(OutputMessages.SUCCESSFULLY_ADDED_PLAYER, username);
             default:
                 throw new IllegalArgumentException(ExceptionMessages.INVALID_PLAYER_TYPE);
