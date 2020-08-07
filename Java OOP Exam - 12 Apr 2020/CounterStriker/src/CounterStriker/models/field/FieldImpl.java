@@ -1,5 +1,6 @@
 package CounterStriker.models.field;
 
+import CounterStriker.common.OutputMessages;
 import CounterStriker.models.players.Player;
 
 import java.util.ArrayList;
@@ -19,14 +20,14 @@ public class FieldImpl implements Field{
                 counterTerrorists.add(player);
         }
 
-        while (!haveTeamWithDeadPlayers(terrorists, counterTerrorists)){
+        while (!haveTeamWithAllDeadPlayers(terrorists, counterTerrorists)){
             attack(terrorists, counterTerrorists);
             attack(counterTerrorists, terrorists);
         }
 
         return terrorists.stream().mapToInt(Player::getHealth).sum() > 0
-                ? "Terrorist wins!"
-                : "Counter Terrorist wins!";
+                ? OutputMessages.TERRORIST_WINS
+                : OutputMessages.COUNTER_TERRORIST_WINS;
     }
 
     private void attack(List<Player> attackers, List<Player> targets) {
@@ -41,7 +42,7 @@ public class FieldImpl implements Field{
         }
     }
 
-    private boolean haveTeamWithDeadPlayers(List<Player> terrorists, List<Player> counterTerrorists) {
+    private boolean haveTeamWithAllDeadPlayers(List<Player> terrorists, List<Player> counterTerrorists) {
         boolean areAllTerroristsDead = terrorists
                 .stream()
                 .mapToInt(Player::getHealth)

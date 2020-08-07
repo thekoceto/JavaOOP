@@ -5,10 +5,9 @@ import CounterStriker.models.players.Player;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 public class PlayerRepository implements Repository<Player>{
-    private Collection<Player> models;
+    private final Collection<Player> models;
 
     public PlayerRepository() {
         this.models = new ArrayList<>();
@@ -16,7 +15,7 @@ public class PlayerRepository implements Repository<Player>{
 
     @Override
     public Collection<Player> getModels() {
-        return (this.models);
+        return this.models;
     }
 
     @Override
