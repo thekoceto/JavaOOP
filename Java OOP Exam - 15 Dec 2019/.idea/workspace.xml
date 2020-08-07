@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b7d43e5-94de-4ccd-8aeb-1112efc379eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/aquarium.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/common/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/common/ConstantMessages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/common/ExceptionMessages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/core/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/core/Engine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/core/EngineImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/models/aquariums/Aquarium.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/models/decorations/Decoration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/models/fish/Fish.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01. High Quality Structure_Skeleton/src/aquarium/repositories/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/UnitTesting.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/src/main/java/aquarium/Aquarium.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/src/main/java/aquarium/Fish.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/src/main/java/aquarium/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03. Unit Testing_Skeleton/src/test/java/aquarium/AquariumTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.4\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1fjyApXGFsFwal6BndixOaZ3QMV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b7d43e5-94de-4ccd-8aeb-1112efc379eb" name="Default Changelist" comment="" />
+      <created>1596745660064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596745660064</updated>
+      <workItem from="1596745662501" duration="32000" />
+      <workItem from="1596745934869" duration="22000" />
+      <workItem from="1596746034721" duration="56000" />
+      <workItem from="1596746145836" duration="187000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="28" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596746254116">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="28" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1596746254116" />
+    <state width="995" height="163" key="GridCell.Tab.0.bottom" timestamp="1596746333824">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="995" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596746333824" />
+    <state width="995" height="163" key="GridCell.Tab.0.center" timestamp="1596746333824">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="995" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596746333824" />
+    <state width="995" height="163" key="GridCell.Tab.0.left" timestamp="1596746333824">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="995" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596746333824" />
+    <state width="995" height="163" key="GridCell.Tab.0.right" timestamp="1596746333824">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="995" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596746333824" />
+    <state x="308" y="98" key="RollbackChangesDialog" timestamp="1596746248016">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="98" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1596746248016" />
+    <state x="74" y="17" key="SettingsEditor" timestamp="1596746062544">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="74" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1596746062544" />
+  </component>
+</project>
