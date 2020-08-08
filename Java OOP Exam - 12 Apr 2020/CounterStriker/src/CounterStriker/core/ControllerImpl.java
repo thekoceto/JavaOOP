@@ -42,6 +42,7 @@ public class ControllerImpl implements Controller{
 
     @Override
     public String addPlayer(String type, String username, int health, int armor, String gunName) {
+
         Gun gun = guns.findByName(gunName);
         if (gun == null)
             throw new NullPointerException(ExceptionMessages.GUN_CANNOT_BE_FOUND);
