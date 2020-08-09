@@ -3,7 +3,7 @@ package aquarium.models.fish;
 import aquarium.common.ExceptionMessages;
 
 public abstract class BaseFish implements Fish{
-    public static int INCREASES_EAT = 5;
+    private static final int INCREASES_EAT = 5;
 
     private String name;
     private String species;

@@ -5,6 +5,6 @@ public class Ornament extends  BaseDecoration{
     private static final double INITIAL_PRICE = 5d;
 
     public Ornament() {
-        super(INITIAL_COMFORT,INITIAL_PRICE);
+        super(INITIAL_COMFORT, INITIAL_PRICE);
     }
 }

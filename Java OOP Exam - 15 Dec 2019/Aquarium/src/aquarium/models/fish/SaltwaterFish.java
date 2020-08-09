@@ -1,8 +1,8 @@
 package aquarium.models.fish;
 
 public class SaltwaterFish extends BaseFish{
-    public static int INITIAL_SIZE = 5;
-    public static int INCREASES_EAT = 2;
+    private static final int INITIAL_SIZE = 5;
+    private static final int INCREASES_EAT = 2;
     //only in SaltwaterAquarium!
 
     public SaltwaterFish(String name, String species, double price) {

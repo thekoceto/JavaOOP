@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 public abstract class BaseAquarium implements Aquarium{
     private String name;
     private int capacity;
-    Collection<Decoration> decorations;
-    Collection<Fish> fish;
+    private Collection<Decoration> decorations;
+    private Collection<Fish> fish;
 
-    protected BaseAquarium(String name, int capacity) {
+    public BaseAquarium(String name, int capacity) {
         this.setName(name);
         this.capacity = capacity;
         this.decorations = new ArrayList<>();
@@ -25,12 +25,13 @@ public abstract class BaseAquarium implements Aquarium{
     public void setName(String name) {
         if(name == null || name.trim().isEmpty())
             throw new  NullPointerException(ExceptionMessages.AQUARIUM_NAME_NULL_OR_EMPTY);
+
         this.name = name;
     }
 
     @Override
     public void addFish(Fish fish) {
-        if(this.fish.size() >= this.capacity)
+        if(this.fish.size() > this.capacity)
             throw new IllegalStateException(ConstantMessages.NOT_ENOUGH_CAPACITY);
 
         this.fish.add(fish);
@@ -47,6 +48,10 @@ public abstract class BaseAquarium implements Aquarium{
     @Override
     public String getName() {
         return this.name;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
     }
 
     @Override
@@ -66,13 +71,19 @@ public abstract class BaseAquarium implements Aquarium{
 
     @Override
     public String getInfo() {
-        return this.name + " (" + this.getClass().getSimpleName() + "):" +
-                System.lineSeparator() +
-                "Fish: " + fish.stream().map(Fish::getName).collect(Collectors.joining(" ")) +
+
+        String fishInAquarium = this.fish.isEmpty()
+                ? "none"
+                : "Fish: " + fish.stream().map(Fish::getName).collect(Collectors.joining(" ")) +
                 System.lineSeparator() +
                 "Decorations: " + this.decorations.size() +
                 System.lineSeparator() +
                 "Comfort: " + this.calculateComfort();
+
+        return this.name +
+                " (" + this.getClass().getSimpleName() + "):" +
+                System.lineSeparator() +
+                fishInAquarium;
     }
 
     @Override
@@ -85,7 +96,3 @@ public abstract class BaseAquarium implements Aquarium{
         return this.decorations;
     }
 }
-//"{aquariumName} ({aquariumType}):
-//Fish: {fishName1} {fishName2} {fishName3} (…) / none
-//Decorations: {decorationsCount}
-//Comfort: {aquariumComfort}"

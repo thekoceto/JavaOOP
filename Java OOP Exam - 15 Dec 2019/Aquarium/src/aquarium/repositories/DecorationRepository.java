@@ -10,7 +10,7 @@ public class DecorationRepository implements Repository {
     private Collection<Decoration> decorations;
 
     public DecorationRepository() {
-        this.decorations = Collections.unmodifiableList(new ArrayList<>());
+        this.decorations = new ArrayList<>();
     }
 
     @Override
