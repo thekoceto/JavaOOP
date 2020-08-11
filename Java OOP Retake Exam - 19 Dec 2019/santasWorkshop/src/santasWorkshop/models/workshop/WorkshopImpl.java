@@ -15,8 +15,9 @@ public class WorkshopImpl implements Workshop {
                 .filter(i -> !i.isBroken())
                 .findFirst()
                 .orElse(null);
+
             if (instrument != null ){
-                while (!instrument.isBroken() && !present.isDone()){
+                while (!instrument.isBroken() || present.isDone()){
                     present.getCrafted();
                     instrument.use();
                 }
