@@ -7,19 +7,22 @@ import santasWorkshop.models.interfaces.Workshop;
 
 public class WorkshopImpl implements Workshop {
     // TODO
+
     @Override
     public void craft(Present present, Dwarf dwarf) {
         while (!present.isDone() && dwarf.canWork()){
+
             Instrument instrument = dwarf.getInstruments()
-                .stream()
-                .filter(i -> !i.isBroken())
-                .findFirst()
-                .orElse(null);
+                    .stream()
+                    .filter(i -> !i.isBroken())
+                    .findFirst()
+                    .orElse(null);
 
             if (instrument != null ){
-                while (!instrument.isBroken() || present.isDone()){
-                    present.getCrafted();
+                while (!instrument.isBroken() && !present.isDone()){
+                    dwarf.work();
                     instrument.use();
+                    present.getCrafted();
                 }
             }
         }

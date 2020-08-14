@@ -64,7 +64,7 @@ public class BaseDwarf implements Dwarf {
 
     @Override
     public String toString() {
-        return "Name: " + getName() + System.lineSeparator() +
+        return  "Name: " + getName() + System.lineSeparator() +
                 "Energy: " + getEnergy() + System.lineSeparator() +
                 "Instruments: " + this.countNotBrokenInstruments() + " not broken left";
     }
