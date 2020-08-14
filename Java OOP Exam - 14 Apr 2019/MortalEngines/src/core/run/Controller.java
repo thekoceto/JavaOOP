@@ -16,6 +16,4 @@ public interface Controller {
     String AggressiveMode(String machineName);
 
     String DefenseMode(String machineName);
-
-//    String Over();
 }

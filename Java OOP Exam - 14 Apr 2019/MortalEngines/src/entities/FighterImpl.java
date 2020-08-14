@@ -7,11 +7,11 @@ public class FighterImpl extends BaseMachine implements Fighter {
     private static final double ATTACK_POINTS_MODIFIER = 50d;
     private static final double DEFENSE_POINTS_MODIFIER = 25d;
 
-    private boolean aggressiveMode;
+    private boolean aggressiveMode = false;
 
     public FighterImpl(String name, double attackPoints, double defensePoints) {
         super(name, attackPoints, defensePoints, INITIAL_HEALTH_POINTS);
-        this.aggressiveMode = true;
+        this.toggleAggressiveMode();
     }
 
     @Override

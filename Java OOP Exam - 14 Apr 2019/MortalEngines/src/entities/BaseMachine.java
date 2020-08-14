@@ -94,7 +94,7 @@ public abstract class BaseMachine implements Machine {
     @Override
     public String toString() {
         return  "- " + this.getName() + System.lineSeparator() +
-                " *Type: " + this.getClass().getSimpleName() + System.lineSeparator() +
+                " *Type: " + this.getClass().getInterfaces()[0].getSimpleName() + System.lineSeparator() +
                 " *Health: " + this.getHealthPoints() + System.lineSeparator() +
                 " *Attack: " + this.getAttackPoints() + System.lineSeparator() +
                 " *Defense: " + this.getDefensePoints() + System.lineSeparator() +
