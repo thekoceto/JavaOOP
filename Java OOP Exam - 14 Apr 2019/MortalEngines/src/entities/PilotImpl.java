@@ -48,7 +48,9 @@ public class PilotImpl implements Pilot {
                 .append(this.getMachines().size())
                 .append(" machines")
                 .append(System.lineSeparator());
-        machines.forEach(machine -> report.append(machine.toString()).append(System.lineSeparator()));
+
+        machines.forEach(machine ->
+                report.append(machine.toString()).append(System.lineSeparator()));
 
         return report.toString().trim();
     }

@@ -7,7 +7,7 @@ public class TankImpl extends BaseMachine implements Tank {
     private static final double ATTACK_POINTS_MODIFIER = 40d;
     private static final double DEFENSE_POINTS_MODIFIER = 30d;
 
-    private boolean defenseMode = false;
+    private boolean defenseMode = false; // under initialization get to be true
 
     public TankImpl(String name, double attackPoints, double defensePoints) {
         super(name, attackPoints, defensePoints, INITIAL_HEALTH_POINTS);

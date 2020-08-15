@@ -7,7 +7,7 @@ public class FighterImpl extends BaseMachine implements Fighter {
     private static final double ATTACK_POINTS_MODIFIER = 50d;
     private static final double DEFENSE_POINTS_MODIFIER = 25d;
 
-    private boolean aggressiveMode = false;
+    private boolean aggressiveMode = false; // under initialization get to be true
 
     public FighterImpl(String name, double attackPoints, double defensePoints) {
         super(name, attackPoints, defensePoints, INITIAL_HEALTH_POINTS);
@@ -30,6 +30,7 @@ public class FighterImpl extends BaseMachine implements Fighter {
             super.setDefensePoints(super.getDefensePoints() + DEFENSE_POINTS_MODIFIER);
         }
     }
+
     @Override
     public String toString() {
         return super.toString() + System.lineSeparator() +
