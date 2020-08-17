@@ -45,7 +45,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String addPeripheral(int computerId, int id, String peripheralType, String manufacturer, String model, double price, double overallPerformance, String connectionType) {
-        Computer computer = returnComputerWithId(computerId);
+        Computer computer = checkAndReturnComputerWithId(computerId);
 
         if (getPeripheral(id, computer) != null)
             throw new IllegalArgumentException(EXISTING_PERIPHERAL_ID);
@@ -83,8 +83,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String removePeripheral(String peripheralType, int computerId) {
-
-        Computer computer = returnComputerWithId(computerId);
+        Computer computer = checkAndReturnComputerWithId(computerId);
 
         Peripheral peripheral = computer.removePeripheral(peripheralType);
         this.peripherals.remove(peripheral);
@@ -94,7 +93,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String addComponent(int computerId, int id, String componentType, String manufacturer, String model, double price, double overallPerformance, int generation) {
-        Computer computer = returnComputerWithId(computerId);
+        Computer computer = checkAndReturnComputerWithId(computerId);
 
         if (getComponent(id, computer) != null)
             throw new IllegalArgumentException(EXISTING_COMPONENT_ID);
@@ -144,7 +143,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String removeComponent(String componentType, int computerId) {
-        Computer computer = returnComputerWithId(computerId);
+        Computer computer = checkAndReturnComputerWithId(computerId);
 
         Component component = computer.removeComponent(componentType);
         this.components.remove(component);
@@ -154,7 +153,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String buyComputer(int id) {
-        Computer computer = returnComputerWithId(id);
+        Computer computer = checkAndReturnComputerWithId(id);
 
         this.computers.remove(computer);
 
@@ -179,15 +178,15 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String getComputerData(int id) {
-        Computer computer = returnComputerWithId(id);
+        Computer computer = checkAndReturnComputerWithId(id);
 
         return computer.toString();
     }
 
-    private Computer returnComputerWithId(int computerId){
+    private Computer checkAndReturnComputerWithId(int computerId){
         Computer computer = getComputerWithID(computerId);
 
-        if (getComputerWithID(computerId) == null)
+        if (computer == null)
             throw new IllegalArgumentException(NOT_EXISTING_COMPUTER_ID);
 
         return computer;
