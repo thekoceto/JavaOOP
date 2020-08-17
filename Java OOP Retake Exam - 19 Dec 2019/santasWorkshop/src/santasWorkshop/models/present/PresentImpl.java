@@ -3,8 +3,6 @@ package santasWorkshop.models.present;
 import santasWorkshop.common.ExceptionMessages;
 import santasWorkshop.models.interfaces.Present;
 
-import java.util.ArrayList;
-
 public class PresentImpl implements Present {
     private String name;
     private int energyRequired;
@@ -23,6 +21,7 @@ public class PresentImpl implements Present {
     public void setEnergyRequired(int energyRequired) {
         if (energyRequired < 0)
             throw new IllegalArgumentException(ExceptionMessages.PRESENT_ENERGY_LESS_THAN_ZERO);
+
         this.energyRequired = energyRequired;
     }
 

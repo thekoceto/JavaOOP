@@ -13,6 +13,7 @@ public class InstrumentImpl implements Instrument {
     public void setPower(int power) {
         if (power < 0)
             throw new IllegalArgumentException(ExceptionMessages.INSTRUMENT_POWER_LESS_THAN_ZERO);
+
         this.power = power;
     }
 
@@ -30,7 +31,7 @@ public class InstrumentImpl implements Instrument {
 
     @Override
     public boolean isBroken() {
-        return this.power == 0;
+        return this.power <= 0;
     }
 
 }

@@ -10,22 +10,21 @@ public class WorkshopImpl implements Workshop {
 
     @Override
     public void craft(Present present, Dwarf dwarf) {
-        while (!present.isDone() && dwarf.canWork()){
+        while(dwarf.canWork() && getInstrument(dwarf) != null && !present.isDone()){
 
-            Instrument instrument = dwarf.getInstruments()
-                    .stream()
-                    .filter(i -> !i.isBroken())
-                    .findFirst()
-                    .orElse(null);
-
-            if (instrument != null ){
-                while (!instrument.isBroken() && !present.isDone()){
-                    dwarf.work();
-                    instrument.use();
-                    present.getCrafted();
-                }
-            }
+            getInstrument(dwarf).use();
+            dwarf.work();
+            present.getCrafted();
         }
+
+    }
+
+    private Instrument getInstrument(Dwarf dwarf) {
+        return dwarf.getInstruments()
+                .stream()
+                .filter(i -> !i.isBroken())
+                .findAny()
+                .orElse(null);
     }
 }
 // Here is how the craft method works:

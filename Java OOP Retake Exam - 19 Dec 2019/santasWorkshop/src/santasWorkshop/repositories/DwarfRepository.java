@@ -5,6 +5,7 @@ import santasWorkshop.models.interfaces.Dwarf;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 public class DwarfRepository implements Repository<Dwarf>{
     private final Collection<Dwarf> dwarfs;
@@ -15,7 +16,7 @@ public class DwarfRepository implements Repository<Dwarf>{
 
     @Override
     public Collection<Dwarf> getModels() {
-        return this.dwarfs;
+        return Collections.unmodifiableCollection(this.dwarfs);
     }
 
     @Override

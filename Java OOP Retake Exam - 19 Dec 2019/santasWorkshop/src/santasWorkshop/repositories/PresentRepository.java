@@ -1,10 +1,10 @@
 package santasWorkshop.repositories;
 
-import santasWorkshop.models.interfaces.Dwarf;
 import santasWorkshop.models.interfaces.Present;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 public class PresentRepository implements Repository<Present>{
     private final Collection<Present> presents;
@@ -15,7 +15,7 @@ public class PresentRepository implements Repository<Present>{
 
     @Override
     public Collection<Present> getModels() {
-        return this.presents;
+        return Collections.unmodifiableCollection(this.presents);
     }
 
     @Override
