@@ -1,7 +1,7 @@
 package onlineShop.models.products;
 
-import onlineShop.common.constants.ExceptionMessages;
-import onlineShop.common.constants.OutputMessages;
+import static onlineShop.common.constants.ExceptionMessages.*;
+import static onlineShop.common.constants.OutputMessages.*;
 
 public abstract class BaseProduct implements Product{
     private int id;
@@ -17,38 +17,38 @@ public abstract class BaseProduct implements Product{
         this.setPrice(price);
         this.setOverallPerformance(overallPerformance);
     }
-    
+
     public void setId(int id) {
         if (id <= 0)
-            throw new IllegalArgumentException(ExceptionMessages.INVALID_PRODUCT_ID);
+            throw new IllegalArgumentException(INVALID_PRODUCT_ID);
 
         this.id = id;
     }
 
     public void setManufacturer(String manufacturer) {
         if (manufacturer==null || manufacturer.trim().isEmpty())
-            throw new IllegalArgumentException(ExceptionMessages.INVALID_MANUFACTURER);
+            throw new IllegalArgumentException(INVALID_MANUFACTURER);
 
         this.manufacturer = manufacturer;
     }
 
     public void setModel(String model) {
         if (model==null || model.trim().isEmpty())
-            throw new IllegalArgumentException(ExceptionMessages.INVALID_MODEL);
+            throw new IllegalArgumentException(INVALID_MODEL);
 
         this.model = model;
     }
 
     public void setPrice(double price) {
         if (price <= 0d)
-            throw new IllegalArgumentException(ExceptionMessages.INVALID_PRICE);
+            throw new IllegalArgumentException(INVALID_PRICE);
 
         this.price = price;
     }
 
     public void setOverallPerformance(double overallPerformance) {
         if (overallPerformance <= 0d)
-            throw new IllegalArgumentException(ExceptionMessages.INVALID_OVERALL_PERFORMANCE);
+            throw new IllegalArgumentException(INVALID_OVERALL_PERFORMANCE);
 
         this.overallPerformance = overallPerformance;
     }
@@ -80,7 +80,7 @@ public abstract class BaseProduct implements Product{
 
     @Override
     public String toString() {
-        return String.format(OutputMessages.PRODUCT_TO_STRING,
+        return String.format(PRODUCT_TO_STRING,
                 this.getOverallPerformance(), this.getPrice(), this.getClass().getSimpleName(),
                 this.getManufacturer(), this.getModel(), this.getId());
     }

@@ -51,34 +51,26 @@ public class ControllerImpl implements Controller {
             throw new IllegalArgumentException(EXISTING_PERIPHERAL_ID);
 
         Peripheral peripheral;
+
         switch (peripheralType) {
             case "Headset":
                 peripheral = new Headset(id, manufacturer, model, price, overallPerformance, connectionType);
-                computer.addPeripheral(peripheral);
-                this.peripherals.add(peripheral);
-                return String.format(ADDED_PERIPHERAL, peripheralType, id, computerId);
-
+                break;
             case "Keyboard":
                 peripheral = new Keyboard(id, manufacturer, model, price, overallPerformance, connectionType);
-                computer.addPeripheral(peripheral);
-                this.peripherals.add(peripheral);
-                return String.format(ADDED_PERIPHERAL, peripheralType, id, computerId);
-
+                break;
             case "Monitor":
                 peripheral = new Monitor(id, manufacturer, model, price, overallPerformance, connectionType);
-                computer.addPeripheral(peripheral);
-                this.peripherals.add(peripheral);
-                return String.format(ADDED_PERIPHERAL, peripheralType, id, computerId);
-
+                break;
             case "Mouse":
                 peripheral = new Mouse(id, manufacturer, model, price, overallPerformance, connectionType);
-                computer.addPeripheral(peripheral);
-                this.peripherals.add(peripheral);
-                return String.format(ADDED_PERIPHERAL, peripheralType, id, computerId);
-
+                break;
             default:
                 throw new IllegalArgumentException(INVALID_PERIPHERAL_TYPE);
         }
+        computer.addPeripheral(peripheral);
+        this.peripherals.add(peripheral);
+        return String.format(ADDED_PERIPHERAL, peripheralType, id, computerId);
     }
 
     @Override
@@ -99,46 +91,33 @@ public class ControllerImpl implements Controller {
             throw new IllegalArgumentException(EXISTING_COMPONENT_ID);
 
         Component component;
+
         switch (componentType){
             case "CentralProcessingUnit":
                 component = new CentralProcessingUnit(id, manufacturer, model, price, overallPerformance, generation);
-                computer.addComponent(component);
-                this.components.add(component);
-                return String.format(ADDED_COMPONENT, componentType, id, computerId);
-
+                break;
             case "Motherboard":
                 component = new Motherboard(id, manufacturer, model, price, overallPerformance, generation);
-                computer.addComponent(component);
-                this.components.add(component);
-                return String.format(ADDED_COMPONENT, componentType, id, computerId);
-
+                break;
             case "PowerSupply":
                 component = new PowerSupply(id, manufacturer, model, price, overallPerformance, generation);
-                computer.addComponent(component);
-                this.components.add(component);
-                return String.format(ADDED_COMPONENT, componentType, id, computerId);
-
+                break;
             case "RandomAccessMemory":
                 component = new RandomAccessMemory(id, manufacturer, model, price, overallPerformance, generation);
-                computer.addComponent(component);
-                this.components.add(component);
-                return String.format(ADDED_COMPONENT, componentType, id, computerId);
-
+                break;
             case "SolidStateDrive":
                 component = new SolidStateDrive(id, manufacturer, model, price, overallPerformance, generation);
-                computer.addComponent(component);
-                this.components.add(component);
-                return String.format(ADDED_COMPONENT, componentType, id, computerId);
-
+                break;
             case "VideoCard":
                 component = new VideoCard(id, manufacturer, model, price, overallPerformance, generation);
-                computer.addComponent(component);
-                this.components.add(component);
-                return String.format(ADDED_COMPONENT, componentType, id, computerId);
-
+                break;
             default:
                 throw new IllegalArgumentException(INVALID_COMPONENT_TYPE);
         }
+
+        computer.addComponent(component);
+        this.components.add(component);
+        return String.format(ADDED_COMPONENT, componentType, id, computerId);
     }
 
     @Override
@@ -146,6 +125,7 @@ public class ControllerImpl implements Controller {
         Computer computer = checkAndReturnComputerWithId(computerId);
 
         Component component = computer.removeComponent(componentType);
+
         this.components.remove(component);
 
         return String.format(REMOVED_COMPONENT, componentType, component.getId());
