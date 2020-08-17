@@ -17,11 +17,7 @@ public abstract class BaseProduct implements Product{
         this.setPrice(price);
         this.setOverallPerformance(overallPerformance);
     }
-
-
-    //•	id – int
-    //o	cannot be less than or equal to 0. In that case, throw IllegalArgumentException
-    // with message "Id can not be less or equal than 0."
+    
     public void setId(int id) {
         if (id <= 0)
             throw new IllegalArgumentException(ExceptionMessages.INVALID_PRODUCT_ID);
@@ -29,9 +25,6 @@ public abstract class BaseProduct implements Product{
         this.id = id;
     }
 
-    //•	manufacturer – String
-    //o	cannot be null or whitespace. In that case, throw IllegalArgumentException
-    // with message "Manufacturer can not be empty.
     public void setManufacturer(String manufacturer) {
         if (manufacturer==null || manufacturer.trim().isEmpty())
             throw new IllegalArgumentException(ExceptionMessages.INVALID_MANUFACTURER);
@@ -39,9 +32,6 @@ public abstract class BaseProduct implements Product{
         this.manufacturer = manufacturer;
     }
 
-    //•	model – String
-    //o	cannot be null or whitespace. In that case, throw IllegalArgumentException
-    // with message "Model can not be empty."
     public void setModel(String model) {
         if (model==null || model.trim().isEmpty())
             throw new IllegalArgumentException(ExceptionMessages.INVALID_MODEL);
@@ -49,10 +39,6 @@ public abstract class BaseProduct implements Product{
         this.model = model;
     }
 
-
-    //•	price – double
-    //o	cannot be less than or equal to 0. In that case, throw IllegalArgumentException
-    // with message "Price can not be less or equal than 0."
     public void setPrice(double price) {
         if (price <= 0d)
             throw new IllegalArgumentException(ExceptionMessages.INVALID_PRICE);
@@ -60,9 +46,6 @@ public abstract class BaseProduct implements Product{
         this.price = price;
     }
 
-    //•	overallPerformance – double
-    //o	cannot be less than or equal to 0. In that case, throw IllegalArgumentException
-    // with message "Overall Performance can not be less or equal than 0."
     public void setOverallPerformance(double overallPerformance) {
         if (overallPerformance <= 0d)
             throw new IllegalArgumentException(ExceptionMessages.INVALID_OVERALL_PERFORMANCE);

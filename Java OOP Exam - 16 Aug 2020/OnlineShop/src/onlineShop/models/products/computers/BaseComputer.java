@@ -28,8 +28,7 @@ public class BaseComputer extends BaseProduct implements Computer{
         info.append(super.toString()).append(System.lineSeparator());
 
         info
-                .append(" ")
-                .append(String.format(COMPUTER_COMPONENTS_TO_STRING,this.components.size()))
+                .append(" ").append(String.format(COMPUTER_COMPONENTS_TO_STRING,this.components.size()))
                 .append(System.lineSeparator());
 
         this.components.forEach(component -> info
@@ -59,13 +58,7 @@ public class BaseComputer extends BaseProduct implements Computer{
         if (this.components.isEmpty())
             return super.getOverallPerformance();
 
-        double averageOverallPerformance =
-                this.components.stream()
-                        .mapToDouble(Product::getOverallPerformance)
-                        .average()
-                        .orElse(0d);
-
-        return super.getOverallPerformance() + averageOverallPerformance;
+        return super.getOverallPerformance() + getComponentAverageOverallPerformance ();
     }
 
     @Override
@@ -150,11 +143,10 @@ public class BaseComputer extends BaseProduct implements Computer{
 
         throw new IllegalArgumentException(String.format(NOT_EXISTING_PERIPHERAL,
                 peripheralType, this.getClass().getSimpleName(), this.getId()));
-        //"Peripheral {peripheral type} does not exist in {computer type} with Id {id}."
     }
 
-    private double getAverageOverallPerformance (List<BaseProduct> products){
-        return products.stream()
+    private double getComponentAverageOverallPerformance (){
+        return this.components.stream()
                 .mapToDouble(Product::getOverallPerformance)
                 .average()
                 .orElse(0d);

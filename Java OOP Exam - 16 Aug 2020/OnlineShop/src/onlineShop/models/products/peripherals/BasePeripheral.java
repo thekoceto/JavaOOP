@@ -19,7 +19,6 @@ public abstract class BasePeripheral extends BaseProduct implements Peripheral{
 
     @Override
     public String toString() {
-        return super.toString() +
-                String.format(OutputMessages.PERIPHERAL_TO_STRING, this.connectionType);
+        return super.toString() + String.format(OutputMessages.PERIPHERAL_TO_STRING, this.connectionType);
     }
 }
