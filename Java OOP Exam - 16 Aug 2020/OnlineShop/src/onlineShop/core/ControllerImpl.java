@@ -1,7 +1,5 @@
 package onlineShop.core;
 
-import onlineShop.common.constants.ExceptionMessages;
-import onlineShop.common.constants.OutputMessages;
 import onlineShop.core.interfaces.Controller;
 import onlineShop.models.products.components.*;
 import onlineShop.models.products.computers.Computer;
@@ -35,6 +33,7 @@ public class ControllerImpl implements Controller {
             case "DesktopComputer":
                 this.computers.add(new DesktopComputer(id, manufacturer, model, price));
                 return String.format(ADDED_COMPUTER, id);
+
             case "Laptop":
                 this.computers.add(new Laptop(id, manufacturer, model, price));
                 return String.format(ADDED_COMPUTER, id);
@@ -46,7 +45,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String addPeripheral(int computerId, int id, String peripheralType, String manufacturer, String model, double price, double overallPerformance, String connectionType) {
-        Computer computer = checkComputerIdNotExist(computerId);
+        Computer computer = returnComputerWithId(computerId);
 
         if (getPeripheral(id, computer) != null)
             throw new IllegalArgumentException(EXISTING_PERIPHERAL_ID);
@@ -85,7 +84,7 @@ public class ControllerImpl implements Controller {
     @Override
     public String removePeripheral(String peripheralType, int computerId) {
 
-        Computer computer = checkComputerIdNotExist(computerId);
+        Computer computer = returnComputerWithId(computerId);
 
         Peripheral peripheral = computer.removePeripheral(peripheralType);
         this.peripherals.remove(peripheral);
@@ -95,7 +94,8 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String addComponent(int computerId, int id, String componentType, String manufacturer, String model, double price, double overallPerformance, int generation) {
-        Computer computer = checkComputerIdNotExist(computerId);
+        Computer computer = returnComputerWithId(computerId);
+
         if (getComponent(id, computer) != null)
             throw new IllegalArgumentException(EXISTING_COMPONENT_ID);
 
@@ -144,7 +144,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String removeComponent(String componentType, int computerId) {
-        Computer computer = checkComputerIdNotExist(computerId);
+        Computer computer = returnComputerWithId(computerId);
 
         Component component = computer.removeComponent(componentType);
         this.components.remove(component);
@@ -154,7 +154,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String buyComputer(int id) {
-        Computer computer = checkComputerIdNotExist(id);
+        Computer computer = returnComputerWithId(id);
 
         this.computers.remove(computer);
 
@@ -163,14 +163,14 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String BuyBestComputer(double budget) {
+
         Computer bestComputer = this.computers.stream()
                 .filter(computer -> computer.getPrice() <= budget)
                 .max(Comparator.comparing(Computer::getOverallPerformance))
                 .orElse(null);
 
-
         if (bestComputer == null)
-            throw new IllegalArgumentException (String.format(ExceptionMessages.CAN_NOT_BUY_COMPUTER, budget));
+            throw new IllegalArgumentException (String.format(CAN_NOT_BUY_COMPUTER, budget));
 
         this.computers.remove(bestComputer);
 
@@ -179,24 +179,23 @@ public class ControllerImpl implements Controller {
 
     @Override
     public String getComputerData(int id) {
-        Computer computer = checkComputerIdNotExist(id);
+        Computer computer = returnComputerWithId(id);
 
         return computer.toString();
     }
 
-    private Computer checkComputerIdNotExist(int computerId){
+    private Computer returnComputerWithId(int computerId){
         Computer computer = getComputerWithID(computerId);
 
         if (getComputerWithID(computerId) == null)
-            throw new IllegalArgumentException(ExceptionMessages.NOT_EXISTING_COMPUTER_ID);
+            throw new IllegalArgumentException(NOT_EXISTING_COMPUTER_ID);
 
         return computer;
-
     }
 
     private void checkComputerIdExist(int computerId){
         if (getComputerWithID(computerId) != null)
-            throw new IllegalArgumentException(ExceptionMessages.EXISTING_COMPUTER_ID);
+            throw new IllegalArgumentException(EXISTING_COMPUTER_ID);
     }
 
     private Computer getComputerWithID(int computerId) {
